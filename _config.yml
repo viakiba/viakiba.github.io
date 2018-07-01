@@ -2,7 +2,7 @@
 #   Main Configs   #
 # ---------------- #
 baseurl:
-url: blog.viakiba.cn
+url: 
 date_format: "ordinal"
 title: viakiba
 subtitle: "viakiba"
