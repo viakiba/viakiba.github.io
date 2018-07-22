@@ -6,6 +6,11 @@ description: SpringBoot 中借助 TestNG/SpringBootTest 实现测试
 keywords: SpringBoot, TestNG, Idea
 ---
 
+** 代码地址 **
+```
+  https://github.com/viakiba/viakiba/tree/master/SpringTest-testNG
+```
+
 ### 背景
 
 > 最近在项目中需要对接一个第三方系统，对于这个系统的接口进行测试的时候后面的接口请求信息需要结合前面接口的相应结果 （大概四层）。虽然 junit 也可以完成这种需求，但是有时只想执行其中前两三次的测试时，junit 实现就显得比较牵强。所以就引出来接下来的 TestNG.项目本身是基于 SpringBoot 开发的，测试代码也写在了这个里面测试代码需要依赖一些配置信息以及服务类。
@@ -33,10 +38,6 @@ TestNG 使用 Java 和面向对象的功能
 
 #### 实践
 TestNG 使用 XML 结合代码实现灵活的测试需求。（开发工具 IDEA ）</br>
-代码地址：
-```
-  https://github.com/viakiba/viakiba/tree/master/SpringTest-testNG
-```
 ##### 测试代码
 相对于代码更加关注xml文件的书写与配置。
 ```
