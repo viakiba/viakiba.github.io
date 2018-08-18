@@ -1,17 +1,101 @@
-- name: viakiba
-  url: http://blog.viakiba.org
+- name: 美团点评技术团队
+  url: https://tech.meituan.com
+
+- name: 结构之法 算法之道
+  url: https://blog.csdn.net/v_july_v
+
+- name: ImportNew - 专注Java & Android 技术分享
+  url: http://www.importnew.com/
+
+- name: IBM developerWorks 中国 : Java
+  url: https://www.ibm.com/developerworks/cn/java/
+
+- name: 周立|Spring Cloud
+  url: http://www.itmuch.com/
+
+- name: ggjucheng | 运维
+  url: http://www.cnblogs.com/ggjucheng/
+
+- name: codingxiaxw
+  url: http://codingxiaxw.cn/
+
+- name: vtrois
+  url: https://www.vtrois.com/
+
+- name: 古树悬叶
+  url: http://blog.zinewow.com/
+
+- name: 王爵的技术博客 | 一个后端程序员的笔记
+  url: https://biezhi.me/
+
+- name: 菩提树下的杨过
+  url: https://www.cnblogs.com/yjmyzz/
+
+- name: 阿里中间件团队博客
+  url: http://jm.taobao.org/
+
+- name: anzhsoft的技术专栏 | 专注分布式资源管理和大数据处理平台
+  url: https://blog.csdn.net/anzhsoft
+
+- name: 青蛙小白
+  url: https://blog.frognew.com/
+
+- name: Lrwin的java技术博客
+  url: http://lrwinx.github.io/
+
+- name: 有赞技术团队
+  url: http://tech.youzan.com/
+
+- name: SFLYQ | 追逐全栈技术
+  url: https://blog.thankbabe.com/
+
+- name: 观千剑而后识器，操千曲而后晓声。 | 技术无他,唯手熟尔
+  url: https://blog.csdn.net/shimiso
+
+- name: 一起无聊 | 不要因为走得太远，就忘了当初为什么要出发
+  url: https://yiqiwuliao.com/
+
+- name: flykinghg的博客
+  url: https://blog.csdn.net/flykinghg
+
+- name: 张拭心的博客 shixinzhang | “厚德求真·励学笃行”，输入->思考->输出
+  url: https://blog.csdn.net/u011240877
+
+- name: chris_mao
+  url: https://me.csdn.net/chris_mao
+
+- name: 梁桂钊的博客
+  url: http://blog.720ui.com/
+
+- name: 面向信仰编程
+  url: https://draveness.me/index
+
+- name: zhoujinyi | DBA's Record
+  url: http://www.cnblogs.com/zhoujinyi/
+
+- name: 码志 | 打码改变人生
+  url: https://mazhuang.org/
+
+- name: 凹凸实验室 | 京东
+  url: https://aotu.io/index.html
+
+- name: 一介布衣
+  url: http://yijiebuyi.com/
+
+- name: 酷壳 | coolshell
+  url: https://coolshell.cn
+
+- name: 木杉 | 要么精通，要么死
+  url: http://imushan.com/
+
+- name: 纯洁的微笑
+  url: http://www.ityouknow.com
+
+- name: crossoverjie
+  url: https://crossoverjie.top
 
 - name: viakiba
-  url: https://viakiba.github.io
+  url: https://blog.viakiba.cn/
 
-- name: 只宁静不致远
-  url: http://zxning.github.io
-
-- name: Blog Something
-  url: http://chenxiaoyoyo.github.io
-
-- name: 日新亭
-  url: http://www.fengerzh.com/
-
-- name: 尧哥
-  url: http://www.shishuyao.com
+- name: 机器学习
+  url: https://www.enginego.org/
