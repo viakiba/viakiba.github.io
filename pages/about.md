@@ -8,9 +8,9 @@ menu: 关于
 permalink: /about/
 ---
 
-坚信熟能生巧，努力改变人生。
+改变一生只需要那么一点点时间，领悟那改变却要耗费一生。
 
-## 联系
+## 门户
 
 {% for website in site.data.social %}
 * {{ website.sitename }}：[@{{ website.name }}]({{ website.url }})

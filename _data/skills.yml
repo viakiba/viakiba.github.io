@@ -1,13 +1,19 @@
-- name: Software Engineer Keywords
-  keywords:
-      - Java
-      - Python
-      - Groovy
-      - Shell
-      - Design Patterns
-
 - name: Java Developer Keywords
   keywords:
       - Web Service
-      - Reverse Engineering
+      - Spring & SpringBoot
+      - Mybatis
+      - Neety & Mina
+      - Redis
+      - Thymeleaf & Jsp
+      - 多线程
+      - BSF
+      - Grovvy数据热修复
 
+- name: Linux
+  keywords:
+      - Shell
+      - Python
+      - Jenkins
+      - Docker (容器化)
+      - JVM 参数调优
