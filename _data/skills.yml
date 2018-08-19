@@ -8,6 +8,8 @@
       - Thymeleaf & Jsp
       - 多线程
       - BSF
+      - TestNG
+      - Maven
       - Grovvy数据热修复
 
 - name: Linux
