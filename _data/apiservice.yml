@@ -1,2 +1,14 @@
-- name: 美团点评技术团队
-  url: https://tech.meituan.com
+- name: 快递鸟
+  url: http://www.kdniao.com/
+
+- name: 心知天气
+  url: https://www.seniverse.com/
+
+- name: 应用内测托管
+  url: https://fir.im/
+
+- name: 微信个人支付
+  url: https://payjs.cn/
+
+- name: 在线图表
+  url: https://www.draw.io/
