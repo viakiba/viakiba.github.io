@@ -1,9 +1,9 @@
 ---
 layout: page
-title: About
+title: 关于
 description: viakiba
 keywords: viakiba
-comments: true
+comments: false
 menu: 关于
 permalink: /about/
 ---
