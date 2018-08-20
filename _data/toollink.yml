@@ -1,2 +1,80 @@
 - name: 对称/非对称 相关工具
   url: http://tool.chacuo.net/cryptrsapubkey
+
+- name: Json生成Java实体类工具
+  url: http://www.jsons.cn/json2java/
+
+- name: Json格式校验
+  url: http://json.tongxiehui.net/
+
+- name: 在线HTTP POST/GET接口测试工具
+  url: http://www.atool.org/httptest.php
+
+- name: GC log Analyze
+  url: http://gceasy.io/
+
+- name: Thread Dump Analyzer
+  url: http://fastthread.io/
+
+- name: WebSocket Test
+  url: https://www.websocket.org/echo.html
+
+- name: TLV Analyze (金融 JavaCard)
+  url: https://www.emvlab.org/tlvutils/
+
+- name: Yaml 与 Properties 互转
+  url: http://toyaml.com/index.html
+
+- name: timestamp 时间戳工具
+  url: https://tool.lu/timestamp/
+
+- name: 工具大全（1）
+  url: https://tool.lu/c/developer
+
+- name: 工具大全（2）
+  url: http://tool.oschina.net/
+
+- name: 文件分享服务(FireFox Send)
+  url: https://send.firefox.com/
+
+- name: 在线正则表达式测试
+  url: http://tool.oschina.net/regex/#
+
+- name: TLV Parser(VISA / Master)
+  url: https://paymentcardtools.com/emv-tlv-parser
+
+- name: IDEA 激活
+  url: http://xidea.online/#/
+
+- name: Google Play (APK 下载 需全局代理)
+  url: https://apps.evozi.com/apk-downloader/
+
+- name: Twitter 视频下载
+  url: https://www.downloadtwittervideo.com/zh-cn/#DownloadButtonsLine
+
+- name: CSR / CER 解析/生成
+  url: https://www.myssl.cn/tools/create-csr.html
+
+- name: Base64 转 图片
+  url: http://www.vgot.net/test/image2base64.php?
+
+- name: 裁剪图片工具
+  url: https://www.smartresize.com/zh-cn
+
+- name: Ngrok 内网穿透
+  url: https://www.ngrok.cc/
+
+- name: 服务器推报警 (Server酱)
+  url: http://sc.ftqq.com/
+
+- name: Maven jar 依赖下载
+  url: http://mvnrepository.com/
+
+- name: API 在线文档
+  url: http://tool.oschina.net/apidocs
+
+- name: JS Debug
+  url: http://jsbin.com/?html,output
+
+- name: AirDroid (屏幕文件 同步 在线管理)
+  url: http://web.airdroid.com/
