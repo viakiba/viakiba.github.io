@@ -78,3 +78,6 @@
 
 - name: AirDroid (屏幕文件 同步 在线管理)
   url: http://web.airdroid.com/
+
+- name: jcalgtest (JavaCard 算法)
+  url: https://www.fi.muni.cz/~xsvenda/jcalgtest/index.html#about
