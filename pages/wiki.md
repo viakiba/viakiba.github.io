@@ -1,19 +1,15 @@
 ---
 layout: page
-title: Wiki
+title: 在线工具
 description: 人越学越觉得自己无知
-keywords: 维基, Wiki
+keywords: 友情链接
 comments: false
-menu: 维基
+menu: 在线工具
 permalink: /wiki/
 ---
 
-> 记多少命令和快捷键会让脑袋爆炸呢？
+> 改变一生只需要那么一点点时间，领悟那改变却要耗费一生。
 
-<ul class="listing">
-{% for wiki in site.wiki %}
-{% if wiki.title != "Wiki Template" %}
-<li class="listing-item"><a href="{{ site.url }}{{ wiki.url }}">{{ wiki.title }}</a></li>
-{% endif %}
+{% for link in site.data.toollink %}
+* [{{ link.name }}]({{ link.url }})
 {% endfor %}
-</ul>
