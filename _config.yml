@@ -39,6 +39,10 @@ navs:
     label: 归档
 
   -
+    href: /apiservice/
+    label: 第三方API
+
+  -
     href: /toollink/
     label: 在线工具
 
