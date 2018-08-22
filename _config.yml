@@ -40,7 +40,7 @@ navs:
 
   -
     href: /apiservice/
-    label: 第三方API
+    label: API服务
 
   -
     href: /toollink/
@@ -48,7 +48,7 @@ navs:
 
   -
     href: /links/
-    label: 技术链接
+    label: 技术友链
 
   -
     href: /vita/
@@ -56,7 +56,7 @@ navs:
 
   -
     href: /about/
-    label: 关于
+    label: viakiba
 
 
 # ---------------- #
