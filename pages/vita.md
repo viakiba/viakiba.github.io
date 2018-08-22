@@ -1,8 +1,8 @@
 ---
 layout: page
-title: 简历
-description: 职业经历
-keywords: 简历
+title: 资源
+description: 一些资源
+keywords: 一些资源
 comments: false
 menu: vita
 permalink: /vita/
