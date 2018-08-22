@@ -12,7 +12,7 @@
       - Maven
       - Grovvy数据热修复
 
-- name: Linux
+- name: Linux Keywords
   keywords:
       - Shell
       - Python
