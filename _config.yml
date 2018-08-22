@@ -34,9 +34,9 @@ navs:
     href: /categories/
     label: 分类
 
-  -
-    href: /archives/
-    label: 归档
+  # -
+  #   href: /archives/
+  #   label: 归档
 
   -
     href: /apiservice/
@@ -52,7 +52,7 @@ navs:
 
   -
     href: /vita/
-    label: 资源
+    label: 一些资源
 
   -
     href: /about/
