@@ -1,10 +1,10 @@
 ---
 layout: categories
-title: 分类
+title: 博客分类
 description: 哈哈，你找到了我的文章基因库
-keywords: 分类
+keywords: 博客分类
 comments: false
-menu: 分类
+menu: 博客分类
 permalink: /categories/
 ---
 
