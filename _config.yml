@@ -51,11 +51,13 @@ navs:
     label: 技术链接
 
   -
+    href: /vita/
+    label: 资源
+
+  -
     href: /about/
     label: 关于
-  -
-    href: /vita/
-    label: 简历
+
 
 # ---------------- #
 #       RSS        #
