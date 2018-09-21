@@ -74,6 +74,12 @@ Https证书生成（由根证书签发）
     此文件的默认密码 changeit
   例如：
     keytool -import -alias ${viakiba} -keystore D:\software\java\java8\jdk1.8.0_101\jre\lib\security\cacerts -file myserver.crt
+  列表
+    keytool -list -keystore D:\software\java\java8\jdk1.8.0_101\jre\lib\security\cacerts
+  删除
+    keytool -delete -keystore D:\software\java\java8\jdk1.8.0_101\jre\lib\security\cacerts
+     别名 viakiba
+     口令 changeit
 ```
   如果有多个证书需要加载进证书库比较繁琐，可以只加载根证书就可以完成所有此根证书签发的 Https 证书的信任。即 把 myserver.crt 改问 CA.crt 。某些情况下，这种做法存在很大的风险，如果根密钥泄露，那么对方使用此密钥签发的证书就是不可信的了。所以我们没有使用此方案，但是此方案可以解决问题
 
@@ -91,7 +97,7 @@ Https证书生成（由根证书签发）
 
       这种侵入性太强，其他jvm的程序也会受到影响。
     也可以加入到启动参数中：
-        -Djavax.net.ssl.trustStore=yourTrC:\\Users\\Administrator\\Desktop\\kms\\http.jks -Djavax.net.ssl.trustStorePassword=changeit
+        -Djavax.net.ssl.trustStore=C:\\Users\\Administrator\\Desktop\\kms\\http.jks -Djavax.net.ssl.trustStorePassword=changeit
 ```
 >这种做法可以让单一站点实现 访问不出现 PKIX path validation failed 问题，但是其他正常的域名并不在 http.jks 信任库里，所以此种情况下访问其他域名爱是会出现此问题。丹斯访问其他域名的时候会出现此问题，可以执行的做法,把其他访问的域名证书也在到 http.jks 中。
 
