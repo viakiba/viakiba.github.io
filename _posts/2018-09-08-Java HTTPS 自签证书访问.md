@@ -99,6 +99,7 @@ Https证书生成（由根证书签发）
       这种侵入性太强，其他jvm的程序也会受到影响。
     也可以加入到启动参数中：
         -Djavax.net.ssl.trustStore=C:\\Users\\Administrator\\Desktop\\kms\\http.jks -Djavax.net.ssl.trustStorePassword=changeit
+        java -Djavax.net.ssl.trustStore=C:\\Users\\Administrator\\Desktop\\kms\\http.jks -Djavax.net.ssl.trustStorePassword=changeit -jar APP.jar
 ```
 >这种做法可以让单一站点实现 访问不出现 PKIX path validation failed 问题，但是其他正常的域名并不在 http.jks 信任库里，所以此种情况下访问其他域名爱是会出现此问题。丹斯访问其他域名的时候会出现此问题，可以执行的做法,把其他访问的域名证书也在到 http.jks 中。
 
