@@ -73,6 +73,7 @@ Https证书生成（由根证书签发）
     ${path-to-certificate-file} 请替换为你的ca证书路径，比如我这里就是当前目录的 myserver.crt
     此文件的默认密码 changeit
   例如：
+  导入
     keytool -import -alias ${viakiba} -keystore D:\software\java\java8\jdk1.8.0_101\jre\lib\security\cacerts -file myserver.crt
   列表
     keytool -list -keystore D:\software\java\java8\jdk1.8.0_101\jre\lib\security\cacerts
@@ -106,6 +107,6 @@ Https证书生成（由根证书签发）
   https://www.programcreek.com/java-api-examples/javax.net.ssl.TrustManager
 
 ### 方案四
-  访问时构建 HttpClient 时，加载信任证书，代码量较大。
+  构建 HttpClient 时，加载信任证书，特别是多个不同网址访问时，代码量较大。
 
 方案4虽然复杂但是不依赖环境，方案1，2，3比较简单粗暴，但是省事。
