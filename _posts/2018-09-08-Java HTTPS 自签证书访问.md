@@ -92,12 +92,12 @@ Https证书生成（由根证书签发）
   导入：
     keytool -keystore http.jks -keypass changeit -storepass changeit -alias leisenserver -import -trustcacerts -file myservcer.crt
 
-    在 myservcer.crt 同级目录执行如上命令：
+生效方式：
+    1.在 myservcer.crt 同级目录执行如上命令：
       System.setProperty("javax.net.ssl.trustStore", "C:\\Users\\Administrator\\Desktop\\kms\\http.jks");
       System.setProperty("javax.net.ssl.trustStorePasePassword", "changeit");
-
       这种侵入性太强，其他jvm的程序也会受到影响。
-    也可以加入到启动参数中：
+    2.也可以加入到启动参数中：
         -Djavax.net.ssl.trustStore=C:\\Users\\Administrator\\Desktop\\kms\\http.jks -Djavax.net.ssl.trustStorePassword=changeit
         java -Djavax.net.ssl.trustStore=C:\\Users\\Administrator\\Desktop\\kms\\http.jks -Djavax.net.ssl.trustStorePassword=changeit -jar APP.jar
 ```
@@ -109,5 +109,7 @@ Https证书生成（由根证书签发）
 
 ### 方案四
   构建 HttpClient 时，加载信任证书，特别是多个不同网址访问时，代码量较大。
+>https://www.kancloud.cn/longxuan/httpclient-arron/117507
+
 
 方案4虽然复杂但是不依赖环境，方案1，2，3比较简单粗暴，但是省事。
