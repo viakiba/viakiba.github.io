@@ -1,0 +1,18 @@
+---
+layout: post
+title: liquibase 数据库变更追踪
+categories: [liquibase, 数据库]
+description: Liquibase是一个用于跟踪、管理和应用数据库变化的开源的数据库重构工具。它将所有数据库的变化（包括结构和数据）都保存在XML文件中，便于版本控制。
+keywords: liquibase, 数据库
+---
+
+## 概述
+
+
+## 特性
+
+
+## 实践
+
+
+## 总结
