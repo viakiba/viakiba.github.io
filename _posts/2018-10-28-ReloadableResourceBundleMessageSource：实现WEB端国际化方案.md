@@ -50,6 +50,8 @@ public MessageSource setReloadableResourceBundleMessageSource(){
 }
 
 //设置默认的 locale 标识
+
+//其实这一步会写进 cookie 
 @Bean
 public LocaleResolver localeResolver() {
     CookieLocaleResolver cookieLocaleResolver = new CookieLocaleResolver();
