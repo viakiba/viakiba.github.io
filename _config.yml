@@ -50,9 +50,9 @@ navs:
     href: /links/
     label: 技术友链
 
-  -
-    href: /vita/
-    label: 一些资源
+  # -
+  #   href: /vita/
+  #   label: 一些资源
 
   -
     href: /about/
