@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 第三方服务
+title: 资源
 description: 人越学越觉得自己无知
 keywords: 服务API
 comments: false
