@@ -84,3 +84,6 @@
 
 - name: 阿尔萨斯 线上Debug
 - url: https://alibaba.github.io/arthas/#arthas
+
+- name: Nginx 配置生成器
+- url: https://nginxconfig.io/
