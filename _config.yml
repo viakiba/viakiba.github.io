@@ -40,7 +40,7 @@ navs:
 
   -
     href: /apiservice/
-    label: API服务
+    label: 资源
 
   -
     href: /toollink/
@@ -50,9 +50,9 @@ navs:
     href: /links/
     label: 技术友链
 
-  -
-    href: /vita/
-    label: 一些资源
+  # -
+  #   href: /vita/
+  #   label: 一些资源
 
   -
     href: /about/
