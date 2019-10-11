@@ -7,7 +7,8 @@ keywords: HttpMessageConverters
 ---
 
 
-重写
+#### 重写
+
 ```java
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
@@ -152,9 +153,9 @@ public class MyHttpMessageConverter extends AbstractHttpMessageConverter<Object>
 
 ```
 
-使用fastJson做转bean处理
+### 使用fastJson做转bean处理
 
-配置 HttpMessageConverters
+#### 配置 HttpMessageConverters
 ```java
     @Bean
     public HttpMessageConverters MyHttpMessageConverters() {
@@ -170,13 +171,15 @@ public class MyHttpMessageConverter extends AbstractHttpMessageConverter<Object>
     }
 ```
 
-在使用feign做外部调用的时候，发现也会使用这个 Converters 进行读取与写出，在这个时候在高版本的时候会报类似的错误
+
+### feign 做外部调用在使用
+
+feign做外部调用的时候，发现也会使用这个 Converters 进行读取与写出，在这个时候在高版本的时候会报类似的错误
 ```java
 feign.codec.EncodeException: 'Content-Type' cannot contain wildcard type '*' 
 ```
 
-
-解决
+#### 解决
 ```java
     @Bean
     public HttpMessageConverters MyHttpMessageConverters() {
@@ -217,7 +220,9 @@ public interface FocusService{
     public ApiResponse<Focus> create (@RequestBody FocusCreate focusCondition);
 ```
 
-参考：
+### 参考
+```
 https://www.jianshu.com/p/1312b2b96858
 https://www.cnblogs.com/xiaopotian/p/8654993.html
 https://blog.csdn.net/lppl010_/article/details/94215233
+```
