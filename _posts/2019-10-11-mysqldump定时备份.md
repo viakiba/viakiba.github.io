@@ -1,16 +1,16 @@
 ---
 layout: post
 title: mysqldump定时备份
-categories: [mysql]
+categories: [MySql]
 description: mysqldump定时备份
-keywords: mysql, mysqldump
+keywords: MySql
 ---
 
 ### 参考
 
-```txt
+```shell
 https://www.cnblogs.com/eternal1025/p/8554225.html
-解决：shell中拼接字符串，后面的字符串覆盖前面的字符串: https://blog.csdn.net/hefrankeleyn/article/details/85287391
+解决:shell中拼接字符串，后面的字符串覆盖前面的字符串: https://blog.csdn.net/hefrankeleyn/article/details/85287391
 解决“/tmp/crontab bad minute”问题: https://blog.csdn.net/zwj695535100/article/details/50770996
 mysqldump定时任务生成备份文件内容为空解决方法: https://blog.csdn.net/qq_34457768/article/details/80447010
 ```
