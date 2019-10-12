@@ -7,7 +7,7 @@ keywords: SpringBoot, TestNG, Idea
 ---
 
 ### 代码地址
-```
+```text
   https://github.com/viakiba/viakiba/tree/master/SpringTest-testNG
 ```
 
@@ -23,7 +23,7 @@ TestNG消除了大部分的旧框架的限制，使开发人员能够编写更�
 
 #### 特点
 
-```
+```text
 注解
 TestNG 使用 Java 和面向对象的功能
 支持综合类测试(例如，默认情况下，不用创建一个新的测试每个测试方法的类的实例)
@@ -40,7 +40,7 @@ TestNG 使用 Java 和面向对象的功能
 TestNG 使用 XML 结合代码实现灵活的测试需求。（开发工具 IDEA ）</br>
 ##### 测试代码
 相对于代码更加关注xml文件的书写与配置。
-```
+```text
 import org.testng.annotations.AfterGroups;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -105,7 +105,7 @@ public class SequenceTest {
 ##### priority
 ###### 内容如下
 这个测试 xml 配置，会按照 @Test 里的 priority 标识优先运行数字小的测试方法，然后是数字大的。（此时不关注 group 属性）
-```
+```text
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="classes" thread-count="1">
@@ -132,7 +132,7 @@ public class SequenceTest {
 这个测试 xml 配置，会按照 @Test 里的 priority 标识优先运行数字小的测试方法，然后是数字大的。同时测试的方法 @Test 里的 group 属性应该存在 filter1
 
 ###### 样例1
-```
+```text
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="classes" thread-count="3">
@@ -169,7 +169,7 @@ public class SequenceTest {
 ```
 ###### 样例2
 include 也可以包括 exclude,反之亦然。
-```
+```text
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
@@ -208,7 +208,7 @@ include 也可以包括 exclude,反之亦然。
 ```
 ##### Parameters参数传递
 
-```
+```text
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="classes" thread-count="3">
@@ -235,7 +235,7 @@ include 也可以包括 exclude,反之亦然。
 
 ##### before/after 方法
 有 before/after 相关开头的TestNG注解可以在 @Test 方法执行前后 进行执行前准备和执行后首位，这里以 BeforeClass/AfterGroups 为例。
-```
+```text
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="classes" thread-count="3">
@@ -264,7 +264,7 @@ include 也可以包括 exclude,反之亦然。
 ##### 样例1
 指定引入需要注入的类
 ###### 代码如下
-```
+```text
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
@@ -301,7 +301,7 @@ public class EatServiceTest extends AbstractTestNGSpringContextTests {
 
 ###### XML配置
 这个只会执行 test2() 方法
-```
+```text
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="classes" thread-count="1">
@@ -334,7 +334,7 @@ public class EatServiceTest extends AbstractTestNGSpringContextTests {
 
 ###### class指定Application
 这里时间了两个样例一个是只指定 Application 完成 bean 的初始化，其次是参数传递(TestNG实现)
-```
+```text
 package org.vk.test.springtest_testng;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -381,7 +381,7 @@ public class EatAppTest extends AbstractTestNGSpringContextTests {
 
 ###### XML配置
 
-```
+```text
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="classes" thread-count="1">
@@ -413,7 +413,7 @@ public class EatAppTest extends AbstractTestNGSpringContextTests {
 
 ###### 传入参数样例
 
-```
+```text
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="classes" thread-count="1">
@@ -441,7 +441,7 @@ public class EatAppTest extends AbstractTestNGSpringContextTests {
 ### 总结
 以上 SpringBoot 项目中可以借助 TestNG 实现灵活的测试需求，并且借助 Spring DI 特性可以更加精炼的写出测试代码，完成依赖注入。
 
-```
+```text
 参考
   https://testng.org/doc/documentation-main.html
   https://blog.csdn.net/u011138533/article/details/52174446
