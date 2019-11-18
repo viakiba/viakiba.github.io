@@ -106,7 +106,7 @@
 - name: 快速上手 - iView
   url: https://www.iviewui.com/docs/guide/start
 
-- name: 组件 | Element
+- name: 组件 Element
   url: https://element.eleme.io/#/zh-CN/component/custom-theme
 
 - name: 固钉 Affix - Ant Design Vue
