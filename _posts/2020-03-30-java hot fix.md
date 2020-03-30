@@ -151,3 +151,7 @@ java -javaagent:hotloadAgent.jar -jar hotload.jar com.company.HotLoadTest
 ### 结束
 
 这估计是 最简单mingliao的热更新实现demo了。
+```txt
+还有另外一种实践 不过我个人认为没有上面的实践具有工程意义。
+https://github.com/youxijishu/game-hot-update
+```
