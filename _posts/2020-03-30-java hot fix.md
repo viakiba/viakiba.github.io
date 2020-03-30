@@ -98,6 +98,7 @@ https://github.com/viakiba/javaHotFix/blob/master/src/com/company/ReflectionTest
     https://github.com/viakiba/javaHotFix/blob/master/src/com/company/hotreload/HotReloadTask.java
     解释：
         从代码字符串编译到class文件所进行的实现。 见 https://github.com/viakiba/javaHotFix/blob/master/src/com/company/HotLoadTest.java 文件 第34行代码进行的实现。此时的字符串更新内容是写死在文件里的，其实也可以通过接口传进来 比如socket / rest 接口 等
+        注意 此文件中的的 GS_DEPLOY_CONTEXT_CLASSPATH_DIR 声明的路径 这个就是 jar的执行路径 注意修改到自己上面。
 
 3. 触发更新
     https://github.com/viakiba/javaHotFix/blob/master/src/com/company/hotreload/HotReloadService.java
