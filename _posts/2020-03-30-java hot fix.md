@@ -20,7 +20,7 @@ https://www.ibm.com/developerworks/cn/java/j-lo-jse61/index.html
 
 ```
 引入了 groovy 与 test 支持
-https://github.com/viakiba/javaHotFix
+https://github.com/viakiba/viakiba/tree/master/javaHotFix
 查看lib下的jar文件 引入到环境变量中
 ```
 
@@ -28,7 +28,7 @@ https://github.com/viakiba/javaHotFix
 
 Groovy执行的脚本有两种方式，一种是文件一种是方法体字符串。
 
-```java
+```txt
 
     @Test
     public void testGroovyFile() throws IOException {
@@ -55,7 +55,8 @@ Groovy执行的脚本有两种方式，一种是文件一种是方法体字符�
     }
 
 ```
-GroovyDemo文件见 https://github.com/viakiba/javaHotFix/blob/master/src/com/company/bean/GroovyDemo.java 
+
+GroovyDemo文件见 https://github.com/viakiba/viakiba/blob/master/javaHotFix/src/com/company/bean/GroovyDemo.java
 
 这么操作可以进行线上的数据修复 比如配置等
 
@@ -64,7 +65,7 @@ GroovyDemo文件见 https://github.com/viakiba/javaHotFix/blob/master/src/com/co
 游戏中有很多单例的实现，如果这些实现有问题的问题话，可以借助groovy脚本使用反射替换这个实例。
 
 ```txt
-https://github.com/viakiba/javaHotFix/blob/master/src/com/company/ReflectionTest.java
+https://github.com/viakiba/viakiba/blob/master/javaHotFix/src/com/company/ReflectionTest.java
 ```
 
 ### Instrumentation 
@@ -87,26 +88,26 @@ https://github.com/viakiba/javaHotFix/blob/master/src/com/company/ReflectionTest
 
 #### 实现
 
-```java
+```txt
 
 1. 实现 InstrumentationHolder
-    https://github.com/viakiba/javaHotFix/blob/master/src/com/company/hotreload/InstrumentationHolder.java
+    https://github.com/viakiba/viakiba/blob/master/javaHotFix/src/com/company/hotreload/InstrumentationHolder.java
     解释：
         这个 holder 会在 MANIFEST.MF 描述文件中声明，会在执行jar文件声明的 main 之前执行，执行这个方法的premain方法。此后此文件中的 Instrumentation 会在重新更换 class 的时候 在 HotReloadService 中使用。
 
 2. 实现 编译操作
-    https://github.com/viakiba/javaHotFix/blob/master/src/com/company/hotreload/HotReloadTask.java
+    https://github.com/viakiba/viakiba/blob/master/javaHotFix/src/com/company/hotreload/HotReloadTask.java
     解释：
-        从代码字符串编译到class文件所进行的实现。 见 https://github.com/viakiba/javaHotFix/blob/master/src/com/company/HotLoadTest.java 文件 第34行代码进行的实现。此时的字符串更新内容是写死在文件里的，其实也可以通过接口传进来 比如socket / rest 接口 等
+        从代码字符串编译到class文件所进行的实现。 见 https://github.com/viakiba/viakiba/blob/master/javaHotFix/src/com/company/HotLoadTest.java 文件 第34行代码进行的实现。此时的字符串更新内容是写死在文件里的，其实也可以通过接口传进来 比如socket / rest 接口 等
         注意 此文件中的的 GS_DEPLOY_CONTEXT_CLASSPATH_DIR 声明的路径 这个就是 jar的执行路径 注意修改到自己上面。
 
 3. 触发更新
-    https://github.com/viakiba/javaHotFix/blob/master/src/com/company/hotreload/HotReloadService.java
+    https://github.com/viakiba/viakiba/blob/master/javaHotFix/src/com/company/hotreload/HotReloadService.java
     解释：
         实现 1中的重新定义class操作。
 
 4. 执行类
-    https://github.com/viakiba/javaHotFix/blob/master/src/com/company/HotLoadTest.java
+    https://github.com/viakiba/viakiba/blob/master/javaHotFix/src/com/company/hotreload/HotReloadTask.java
     解释：
         把上面三个操作耦合在一起实现测试例子。
 
@@ -136,7 +137,7 @@ javaAgent jar 描述文件内容如下:
 构建出的jar假设命名为 hotload.jar
 
 文件可以在如下地址找到 可进行对比：
-    https://github.com/viakiba/javaHotFix/tree/master/file
+    https://github.com/viakiba/viakiba/tree/master/javaHotFix/file
 
 这里面的俩 jar 文件可以直接用下面的指令验证。
 ```
