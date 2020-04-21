@@ -38,7 +38,7 @@ navs:
     href: /archives/
     label: 归档
 
-  -
+  # -
     # href: /apiservice/
     # label: 资源
 
@@ -46,7 +46,7 @@ navs:
     href: /toollink/
     label: 链接
 
-  -
+  # -
     # href: /links/
     # label: 技术友链
 
