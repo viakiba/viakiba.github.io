@@ -39,16 +39,16 @@ navs:
     label: 归档
 
   -
-    href: /apiservice/
-    label: 资源
+    # href: /apiservice/
+    # label: 资源
 
   -
     href: /toollink/
-    label: 在线工具
+    label: 链接
 
   -
-    href: /links/
-    label: 技术友链
+    # href: /links/
+    # label: 技术友链
 
   # -
   #   href: /vita/
