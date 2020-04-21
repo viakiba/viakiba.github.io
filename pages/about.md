@@ -12,11 +12,12 @@ permalink: /about/
 
 #### 门户
 
-{% for website in site.data.social %}
+<!-- {% for website in site.data.social %}
 * {{ website.sitename }}：[@{{ website.name }}]({{ website.url }})
-{% endfor %}
+{% endfor %} -->
 
 {% for category in site.data.skills %}
+
 #### {{ category.name }}
 <div class="btn-inline">
 {% for keyword in category.keywords %}
@@ -29,63 +30,28 @@ permalink: /about/
     <h1>黄鹏</h1>
     <div>
         <span>
-            <img src="images/assets/phone-solid.svg" width="18px"> 
             <a href="tel:18037650338">18037650338</a>
         </span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span>
-            <img src="images/assets/envelope-solid.svg" width="18px">
             <a href="mailto:viakiba@gmail.com">viakiba@gmail.com</a>
         </span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span>
-            <img src="images/assets/github-brands.svg" width="18px">
             <a href="https://github.com/viakiba">viakiba</a>
         </span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span>
-            <img src="images/assets/rss-solid.svg" width="18px">
             <a href="https://blog.viakiba.cn">Blog</a>
         </span>
-        <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span>
-            <img src="images/assets/detail-fill.svg" width="18px">
-            <a href="https://blog.viakiba.cn/about">详细</a>
-        </span> -->
     </div>
 </center>
 
-<!-- ## <img src="images/assets/info-circle-solid.svg" width="30px"> 个人信息  -->
-
-<center>
-     <div>
-        <span>
-          期望薪资：面议
-        </span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span>
-          工作经验：3年
-        </span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span>
-          求职意向：Java 研发工程师
-        </span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span>
-          工作经验：3年
-        </span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <!-- <span>
-          其他：男/26
-        </span> -->
-     </div>
-</center>
-
-## <img src="images/assets/graduation-cap-solid.svg" width="30px"> 教育经历
+## 教育经历
 
 - 本科 河南科技大学 物联网工程专业(计算机系) 2013.9~2017.6
 
-## <img src="images/assets/tools-solid.svg" width="30px"> 技能清单
+## 技能清单
 
 - 主要使用 Java 进行开发工作，偶尔也会学习使用 Python 写工具解决一些重复性的问题。
 - 常用 Guava 工具库来提高开发效率，也会使用 Lamada表达式使代码更简洁。
@@ -96,12 +62,13 @@ permalink: /about/
 - 熟悉 GIT, SVN, IDEA, Eclipse, Nginx, Jenkins, Bash 等工具。
 - 了解 Docker 容器技术。
 
-## <img src="images/assets/briefcase-solid.svg" width="30px"> 工作经历
+## 工作经历
 
-- 雷森科技发展有限公司，研发部，Java工程师，2018.4~至今
+- 开心网，开瑞工作室，开发工程师，2019.11~至今
+- 雷森科技发展有限公司，研发部，Java工程师，2018.4~2019.11
 - 北京龙马游戏，研发部，Java开发，2017.7~2018.10
 
-## <img src="images/assets/project-diagram-solid.svg" width="30px"> 项目经历
+## 项目经历
 
 - TSM平台
   - 背景：TSM平台包含两部分，一部分是可信服务下的环境初始化实现 简称 SEI ，一部分是个人化操作的业务实现 简称 SP 。例如在手机中安装一个地铁卡实现刷卡功能，安装门禁卡的过程就包含上述两个过程。目前接入该系统的终端厂商有 华为，联想，出门问问等。
