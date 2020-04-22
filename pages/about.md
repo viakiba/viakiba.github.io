@@ -10,20 +10,6 @@ permalink: /about/
 
 改变一生只需要那么一点点时间，领悟那改变却要耗费一生。
 
-<!-- {% for website in site.data.social %}
-* {{ website.sitename }}：[@{{ website.name }}]({{ website.url }})
-{% endfor %} -->
-
-{% for category in site.data.skills %}
-
-#### {{ category.name }}
-<div class="btn-inline">
-{% for keyword in category.keywords %}
-<button class="btn btn-outline" type="button">{{ keyword }}</button>
-{% endfor %}
-</div>
-{% endfor %}
-
 ***
 
 - 本科 河南科技大学 物联网工程专业(计算机系) 2013.9~2017.6
@@ -46,3 +32,13 @@ permalink: /about/
 - 了解 Docker 容器技术。
 
 ***
+
+{% for category in site.data.skills %}
+
+#### {{ category.name }}
+<div class="btn-inline">
+{% for keyword in category.keywords %}
+<button class="btn btn-outline" type="button">{{ keyword }}</button>
+{% endfor %}
+</div>
+{% endfor %}
