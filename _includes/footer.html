@@ -9,16 +9,10 @@
                 <img src="https://count.58q.com/hit.php?id=yurfdq&nd=6&style=3" alt="独立访客数">
             </a>
             {% for nav in site.navs %}
-            <li>
                 <a href="{{ site.url }}{{ nav.href }}" title="{{ nav.label }}" target="{{ nav.target | default: _self }}">{{ nav.label }}</a>
-            </li>
             {% endfor %}
-            <li><a href="{{ site.url }}{{ site.subscribe_rss }}"><span class="octicon octicon-rss" style="color:orange;"></span></a></li>
-            <ul class="site-footer-links right mobile-hidden">
-              <li>
-                  <a href="javascript:window.scrollTo(0,0)" >TOP</a>
-              </li>
-            </ul>
+            <a href="{{ site.url }}{{ site.subscribe_rss }}"><span class="octicon octicon-rss" style="color:orange;"></span></a>
+            <a href="javascript:window.scrollTo(0,0)" >TOP</a>
         </div>
     </footer>
     <div class="tools-wrapper">
