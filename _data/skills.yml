@@ -4,15 +4,15 @@
       - Kotlin
       - Golang
 
-- name: Java&Kotlin 主要框架
+- name: Java&Kotlin
   keywords:
-      - Spring&springBoot
+      - Spring全家桶
       - Mybatis&Jpa(Hibernate)
       - Vert.x
       - Netty&Mina
       - BSF
 
-- name: Golang 主要框架
+- name: Golang
   keywords:
       - Gin
       - Gorm
@@ -20,13 +20,19 @@
       - Hertz
       - Sandwich
 
+- name: Database
+  keywords:
+      - Mysql
+      - mongoDB
+      - redis
+
 - name: 脚本语言
   keywords:
       - Shell 
       - Groovy
       - Python
 
-- name: 运维
+- name: linux
   keywords:
       - docker
       - jenkins
