@@ -10,6 +10,12 @@ permalink: /links/
 
 > 改变一生只需要那么一点点时间，领悟那改变却要耗费一生。
 
+### 友链
+
+{% for link in site.data.friendlink %}
+* [{{ link.name }}]({{ link.url }})
+{% endfor %}
+
 ### 常用工具平台
 
 {% for link in site.data.apiservice %}

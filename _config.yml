@@ -16,8 +16,8 @@ side_bar_repo_limit: 5
 #      Author      #
 # ---------------- #
 author: viakiba
-organization: kaixin001.com
-organization_url: http://www.kaixin001.com
+organization: Century Game
+organization_url: https://app.mokahr.com/campus_apply/centurygame/24606#/
 github_username: viakiba
 location: BeiJing, China
 email: viakiba@gmail.com
@@ -38,21 +38,9 @@ navs:
     href: /archives/
     label: 归档
 
-  # -
-    # href: /apiservice/
-    # label: 资源
-
   -
     href: /toollink/
     label: 链接
-
-  # -
-    # href: /links/
-    # label: 技术友链
-
-  # -
-  #   href: /vita/
-  #   label: 一些资源
 
   -
     href: /about/
