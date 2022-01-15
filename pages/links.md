@@ -16,6 +16,12 @@ permalink: /toollink/
 * [{{ link.name }}]({{ link.url }})
 {% endfor %}
 
+### 推荐技术博主
+
+{% for link in site.data.links %}
+* [{{ link.name }}]({{ link.url }})
+{% endfor %}
+
 ### 常用工具平台
 
 {% for link in site.data.apiservice %}
@@ -27,10 +33,3 @@ permalink: /toollink/
 {% for link in site.data.toollink %}
 * [{{ link.name }}]({{ link.url }})
 {% endfor %}
-
-### 推荐技术博主
-
-{% for link in site.data.links %}
-* [{{ link.name }}]({{ link.url }})
-{% endfor %}
-
