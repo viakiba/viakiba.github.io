@@ -26,7 +26,7 @@
       - mongoDB
       - redis
 
-- name: 脚本语言
+- name: Script
   keywords:
       - Shell 
       - Groovy
