@@ -1,6 +1,6 @@
 # viakiba
 
-我的个人博客：<https://viakiba.github.io>，欢迎 Star 和 Fork。
+我的个人博客：<https://viakiba.github.io>，欢迎指正。
 
 ## 致谢
 
