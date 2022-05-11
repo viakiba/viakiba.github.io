@@ -2,7 +2,7 @@
 {% if site.github.public_repositories != null %}
 {% assign repos = site.github.public_repositories | sort: "stargazers_count" | reverse%}
 {% for repo in repos | limit: site.side_bar_repo_limit %}
-{% if repo.name == "gate-short-link" || repo.name == "gate-long-link" || repo.name == "viakiba"%}
+{% if repo.name contains "gate" or repo.name contains="viakiba"%}
 <a href="{{ repo.html_url }}" target="_blank" class="card text-center">
     <div class="thumbnail">
         <div class="card-image geopattern" data-pattern-id="{{ repo.name }}">
