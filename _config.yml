@@ -83,7 +83,7 @@ collections:
         permalink: /wiki/:path/
 
 repository: viakiba/viakiba.github.io
-
+sidebar-popular-blacklist: 
 # ---------------- #
 #      Comments    #
 # ---------------- #
