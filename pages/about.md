@@ -26,6 +26,7 @@ permalink: /about/
 - 雷森科技，NFC 卡虚拟化技术 (华为，联想，ticwatch等)
 - 龙马游戏，天书奇谈页游,猫游记手游
 
+<!-- 
 ***
 
 {% for category in site.data.skills %}
@@ -36,4 +37,5 @@ permalink: /about/
 <button class="btn btn-outline" type="button">{{ keyword }}</button>
 {% endfor %}
 </div>
-{% endfor %}
+{% endfor %} 
+-->
