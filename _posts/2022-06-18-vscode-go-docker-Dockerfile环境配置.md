@@ -1,10 +1,12 @@
 ---
 layout: post
-title: vscode-go-docker环境配置
+title: vscode-go-docker-Dockerfile环境配置
 categories: [vscode, go, docker]
 description: vscode-go-docker环境配置
 keywords: vscode, go, docker, 环境配置
 ---
+
+	
 
 # 单体应用
 
@@ -217,8 +219,8 @@ docker run -itd --name redis-test -p 6380:6379 redis
 
 ```go
 	// 连接redis容器（非直连宿主机）
-	// docker network inspect bridge
-	// Containers 标签下 redis 对应的 ip 地址 172 开头
+	// shell下执行    docker network inspect bridge
+	// Containers 标签下  name 为 redis-test 对应的 ip 地址 172 开头
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     "172.17.0.3:6379",
 		Password: "", // no password set
@@ -226,8 +228,6 @@ docker run -itd --name redis-test -p 6380:6379 redis
 	})
 ```
 
-## docker-compose 方式
 
-
-
+这种方式仍然不是使用docker环境的最佳方式，有redis此类服务多个依赖更好的方式是使用 docker-compose。下一篇文章进行详细介绍与实践。
 
