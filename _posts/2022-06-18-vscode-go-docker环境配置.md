@@ -119,7 +119,8 @@ echo "command_init_env.sh: go install honnef.co/go/tools/cmd/staticcheck@latest"
 ### 安装工具（容器）
 ![](/images/post/2022/WX20220618-192235.png)
 
-### 初始化一个go项目
+## 项目代码
+### 初始化一个go项目（也可以是现有的）
 ```shell
 root@f16110fb8999:/workspaces/single-go-docker-0# go mod init single.go.demo/demo
 go: creating new go.mod: module single.go.demo/demo
@@ -164,3 +165,69 @@ root@f16110fb8999:/workspaces/single-go-docker-0#
 ![](/images/post/2022/WechatIMG1.png)
 
 根据 .devcontainer.json 文件的端口映射配置，代码监听端口为 8001。宿主机浏览器访问 http://localhost:8000/ping 即可。
+
+### 连接到redis
+
+创建一个redis服务器，无密码。
+```shell
+docker run -itd --name redis-test -p 6380:6379 redis
+# 容器 6379 映射到 宿主机 6380 上
+```
+
+    改造一下刚刚的 main.go 里的程序，增加两个 url ，一个是 [setRedisKey](http://0.0.0.0:8000/setRedisKey) 一个是 [getRedisKey](http://0.0.0.0:8000/getRedisKey) .增加redis依赖。
+
+    go-redis 客户端 这里使用的是 github.com/go-redis/redis 客户端。与 redis server 有版本对应关系。我的redis server 是 7，所以 依赖使用 go get github.com/go-redis/redis/v9 。
+
+#### 直连宿主机
+
+```
+    // host.docker.internal 这个 地址 是 docker的一个特性，可以访问宿主机端口。
+    rdb := redis.NewClient(&redis.Options{
+		Addr:     "host.docker.internal:6380",
+		Password: "", // no password set
+		DB:       0,  // use default DB
+	})
+	sc := rdb.Ping(context.Background())
+	print(sc)
+	r := gin.New()
+	r.GET("/ping", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "pong",
+		})
+	})
+
+	r.GET("/setRedisKey", func(c *gin.Context) {
+		rdb.Set(context.Background(), "key1", "value111", 10*time.Second)
+		c.JSON(200, gin.H{
+			"message": "pong1",
+		})
+	})
+
+	r.GET("/getRedisKey", func(c *gin.Context) {
+		value := rdb.Get(context.Background(), "key1")
+		println(value.String())
+		c.JSON(200, gin.H{
+			"message": "pong2",
+		})
+	})
+	r.Run(":8001") // listen and serve on
+```
+
+#### 连接redis容器（非直连宿主机）
+
+```go
+	// 连接redis容器（非直连宿主机）
+	// docker network inspect bridge
+	// Containers 标签下 redis 对应的 ip 地址 172 开头
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     "172.17.0.3:6379",
+		Password: "", // no password set
+		DB:       0,  // use default DB
+	})
+```
+
+## docker-compose 方式
+
+
+
+
