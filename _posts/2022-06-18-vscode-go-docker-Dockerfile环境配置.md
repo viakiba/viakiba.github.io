@@ -6,11 +6,11 @@ description: vscode-go-docker环境配置
 keywords: vscode, go, docker, 环境配置
 ---
 
-	
+# [源代码](https://github.com/viakiba/viakiba/tree/master/single-go-docker-0)
 
 # 单体应用
 
-    单体应用是指一个程序只有一个入口点，可以被单独运行的程序。在这种场景下，我们构建起docker容器，以 vscode-go-docker 的方式运行单体应用。这样一次实现配置文件，我们就可以在多处依赖配置文件借助vscode快速拉起一套开发环境。
+    单体应用是指一个程序只有一个入口点，可以被单独运行的程序。在这种场景下，我们构建起docker容器，以 vscode-go-docker 的方式运行单体应用。这样一次实现配置文件，我们就可以在多处依赖配置文件借助vscode快速拉起一套开发环境。整个体验与在宿主机中体验完全一致。
 
 ## 依赖
 
@@ -231,3 +231,57 @@ docker run -itd --name redis-test -p 6380:6379 redis
 
 这种方式仍然不是使用docker环境的最佳方式，有redis此类服务多个依赖更好的方式是使用 docker-compose。下一篇文章进行详细介绍与实践。
 
+#### 连接redis容器（docker 虚拟网络）
+
+```shell
+# 创建一个虚拟网络 名字为 redis-test-net
+docker network create test-redis-net
+```
+启动一个redis容器，并且指定虚拟网络。
+```shell
+docker run -d --name redis-test-net --network test-redis-net --network-alias redisnet redis:latest
+# --network-alias redis 网络别名
+# -p 6381:6379 无需指定端口
+# --network test-redis-net 属于 redis-test-net 虚拟网络
+```
+
+	改造一下 .devcontainer.json ，增加如下 [runArgs](https://code.visualstudio.com/docs/remote/devcontainerjson-reference#_image-or-dockerfile-specific-properties) 参数
+
+```jsonc
+{
+    "dockerFile": "Dockerfile",
+    "appPort": [
+        "8000:8001"
+    ],
+    // 容器监听端口 8001 映射到本地端口 8000
+    "extensions": [
+        "ms-vscode.go",
+        "GitHub.copilot",
+        "golang.go",
+        "mrcrowl.hg",
+        "oderwat.indent-rainbow",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "mohsen1.prettify-json",
+        "johnstoncode.svn-scm",
+        "zxh404.vscode-proto3"
+    ],
+    "runArgs":[
+        "--network=test-redis-net"
+    ]
+}
+// https://code.visualstudio.com/docs/remote/devcontainerjson-reference
+```
+注意： 此时由于修改了 .devcontainer.json ，所以需要重新 build 一下容器。需要重新执行 sh command_init_env.sh 与 go mod tidy 。
+
+修改代码
+
+```go
+// redisnet
+// docker run -d --name redis-test-net --network test-redis-net --network-alias redisnet redis:latest
+// --network-alias 声明的别名
+rdb := redis.NewClient(&redis.Options{
+	Addr:     "redisnet:6379",
+	Password: "", // no password set
+	DB:       0,  // use default DB
+})
+```
