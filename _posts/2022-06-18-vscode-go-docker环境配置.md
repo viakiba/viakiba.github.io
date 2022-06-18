@@ -1,0 +1,166 @@
+---
+layout: post
+title: vscode-go-docker环境配置
+categories: [vscode, go, docker]
+description: vscode-go-docker环境配置
+keywords: vscode, go, docker, 环境配置
+---
+
+# 单体应用
+
+    单体应用是指一个程序只有一个入口点，可以被单独运行的程序。在这种场景下，我们构建起docker容器，以 vscode-go-docker 的方式运行单体应用。这样一次实现配置文件，我们就可以在多处依赖配置文件借助vscode快速拉起一套开发环境。
+
+## 依赖
+
+1. vscode 最新版
+   
+   1. 依赖插件: https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack
+   
+2. docker 最新版
+
+## 配置文件
+
+### Dockerfile
+
+dockerfile 我们这里是比较简单的，直接使用golang指定版本的基础镜像即可，安装必要的依赖，如 git 等。亦可以看自己的需求增加一些额外的命令。
+```Dockerfile
+FROM golang:1.18.3-bullseye
+# Configure to reduce warnings and limitations as instruction from official VSCode Remote-Containers.
+# See https://code.visualstudio.com/docs/remote/containers-advanced#_reducing-dockerfile-build-warnings.
+RUN apt-get update 
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get -y install git iproute2 procps lsb-release
+```
+
+### .devcontainer.json
+
+在根目录创建 .devcontainer.json 文件 （注意最前面有一个 .）。
+
+```jsonc
+{
+    "dockerFile": "Dockerfile", // 指定 Dockerfile 名称
+    "appPort": [
+        "8000:8001" // 将 容器的8001 端口映射到 宿主机的 8000 端口
+    ],
+    "extensions": [ // 安装 vscode-go-docker 的扩展 这里声明的是扩展的 扩展id
+        "ms-vscode.go",
+        "GitHub.copilot",
+        "golang.go",
+        "mrcrowl.hg",
+        "oderwat.indent-rainbow",
+        "VisualStudioExptTeam.vscodeintellicode",
+        "mohsen1.prettify-json",
+        "johnstoncode.svn-scm",
+        "zxh404.vscode-proto3"
+    ]
+}
+//这里还有很多参数配置 https://code.visualstudio.com/docs/remote/devcontainerjson-reference ，可以根据自身情况进行配置。例如 环境变量。
+// 文件夹会自动从容器映射到宿主机的目录下。
+```
+
+![x](/images/post/2022/扩展id.png)
+
+### vscode
+
+此时，使用vscode 打开此文件夹，会识别到 .devcontainer.json 文件，并且提示会自动拉起一个容器。点击 reopen in container ,vscode 重新加载后就处于容器内部了。(注意docker需要在宿主机上安装并运行)
+
+![](/images/post/2022/single-go-docker-0-0.png)
+
+### 补充
+
+```shell
+go install github.com/go-delve/delve/cmd/dlv@latest 
+echo "command_init_env.sh: go install github.com/go-delve/delve/cmd/dlv@latest"
+go install -v golang.org/x/tools/gopls@latest 
+echo "command_init_env.sh: go install golang.org/x/tools/gopls@latest"
+go get golang.org/x/tools/gopls@latest 
+echo "command_init_env.sh: go get golang.org/x/tools/gopls@latest"
+go install -v github.com/stamblerre/gocode@latest 
+echo "command_init_env.sh: go install github.com/stamblerre/gocode@latest"
+go install -v golang.org/x/tools/cmd/goimports@latest   
+echo "command_init_env.sh: go install golang.org/x/tools/cmd/goimports@latest"
+go install -v github.com/ramya-rao-a/go-outline@latest 
+echo "command_init_env.sh: go install github.com/ramya-rao-a/go-outline@latest"
+go install -v github.com/rogpeppe/godef@latest
+echo "command_init_env.sh: go install github.com/rogpeppe/godef@latest"
+go install -v honnef.co/go/tools/cmd/staticcheck@latest
+echo "command_init_env.sh: go install honnef.co/go/tools/cmd/staticcheck@latest"
+```
+
+由于 dockerfile 中未安装 go 相关的 注入 dlv(debug), staticcheck (检查) 等工具，可以使用以下命令在容器中进行执行安装。安装后如果未识别，可以重新连入容器即可。也可重复执行一下命令。
+
+```shell
+go install github.com/go-delve/delve/cmd/dlv@latest 
+echo "command_init_env.sh: go install github.com/go-delve/delve/cmd/dlv@latest"
+go install -v golang.org/x/tools/gopls@latest 
+echo "command_init_env.sh: go install golang.org/x/tools/gopls@latest"
+go get golang.org/x/tools/gopls@latest 
+echo "command_init_env.sh: go get golang.org/x/tools/gopls@latest"
+go install -v github.com/stamblerre/gocode@latest 
+echo "command_init_env.sh: go install github.com/stamblerre/gocode@latest"
+go install -v golang.org/x/tools/cmd/goimports@latest   
+echo "command_init_env.sh: go install golang.org/x/tools/cmd/goimports@latest"
+go install -v github.com/ramya-rao-a/go-outline@latest 
+echo "command_init_env.sh: go install github.com/ramya-rao-a/go-outline@latest"
+go install -v github.com/rogpeppe/godef@latest
+echo "command_init_env.sh: go install github.com/rogpeppe/godef@latest"
+go install -v honnef.co/go/tools/cmd/staticcheck@latest
+echo "command_init_env.sh: go install honnef.co/go/tools/cmd/staticcheck@latest"
+```
+
+这些命令也可以放到 dockerfile 中，然后在容器中使用。
+
+### tips
+
+建议 容器内存给大一些，最少2g。不然可能会遇到 vscode 频繁重新连接以及卡顿的问题。
+
+![](/images/post/2022/WX20220618-192019.png)
+
+### 安装工具（容器）
+![](/images/post/2022/WX20220618-192235.png)
+
+### 初始化一个go项目
+```shell
+root@f16110fb8999:/workspaces/single-go-docker-0# go mod init single.go.demo/demo
+go: creating new go.mod: module single.go.demo/demo
+root@f16110fb8999:/workspaces/single-go-docker-0# go mod tidy
+go: finding module for package github.com/gin-gonic/gin
+go: downloading github.com/gin-gonic/gin v1.8.1
+go: found github.com/gin-gonic/gin in github.com/gin-gonic/gin v1.8.1
+go: downloading github.com/gin-contrib/sse v0.1.0
+go: downloading golang.org/x/net v0.0.0-20210226172049-e18ecbb05110
+go: downloading github.com/mattn/go-isatty v0.0.14
+go: downloading github.com/stretchr/testify v1.7.1
+go: downloading google.golang.org/protobuf v1.28.0
+go: downloading github.com/goccy/go-json v0.9.7
+go: downloading github.com/json-iterator/go v1.1.12
+go: downloading github.com/pelletier/go-toml/v2 v2.0.1
+go: downloading github.com/ugorji/go/codec v1.2.7
+go: downloading github.com/go-playground/validator/v10 v10.10.0
+go: downloading golang.org/x/sys v0.0.0-20210806184541-e5e7981a1069
+go: downloading github.com/davecgh/go-spew v1.1.1
+go: downloading github.com/pmezard/go-difflib v1.0.0
+go: downloading gopkg.in/yaml.v3 v3.0.0-20210107192922-496545a6307b
+go: downloading github.com/modern-go/concurrent v0.0.0-20180228061459-e0a39a4cb421
+go: downloading github.com/modern-go/reflect2 v1.0.2
+go: downloading golang.org/x/text v0.3.6
+go: downloading github.com/go-playground/universal-translator v0.18.0
+go: downloading github.com/leodido/go-urn v1.2.1
+go: downloading golang.org/x/crypto v0.0.0-20210711020723-a769d52b0f97
+go: downloading github.com/go-playground/locales v0.14.0
+go: downloading github.com/go-playground/assert/v2 v2.0.1
+go: downloading github.com/google/go-cmp v0.5.5
+go: downloading gopkg.in/check.v1 v1.0.0-20201130134442-10cb98267c6c
+go: downloading github.com/kr/pretty v0.3.0
+go: downloading golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543
+go: downloading github.com/rogpeppe/go-internal v1.8.0
+go: downloading github.com/kr/text v0.2.0
+root@f16110fb8999:/workspaces/single-go-docker-0# 
+```
+![](/images/post/2022/WX20220618-192747.png)
+
+### 运行
+
+![](/images/post/2022/WechatIMG1.png)
+
+根据 .devcontainer.json 文件的端口映射配置，代码监听端口为 8001。宿主机浏览器访问 http://localhost:8000/ping 即可。
