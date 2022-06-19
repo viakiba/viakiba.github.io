@@ -20,6 +20,7 @@ export GOPROXY=https://proxy.golang.com.cn,direct
 # 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）
 export GOPRIVATE=git.mycompany.com,github.com/my/private
 ```
+**[docker 入门](https://docker.easydoc.net/doc/81170005/cCewZWoN/N9VtYIIi)**
 
 **以下构建的环境，只要不重新构建容器，都是一次设置，后续使用都是会保存数据的。**
 

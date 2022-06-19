@@ -20,6 +20,8 @@ export GOPROXY=https://proxy.golang.com.cn,direct
 export GOPRIVATE=git.mycompany.com,github.com/my/private
 ```
 
+**[docker compose 入门](https://docker.easydoc.net/doc/81170005/cCewZWoN/IJJcUk5J)**
+
 **继续[上一篇文章](https://blog.viakiba.cn/2022/06/18/vscode-go-docker-Dockerfile%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/)提到的 docker-compose, 这一次我们根据配置文件直接拉起配置环境以及所需要的redis环境。**
 
 **以下构建的环境，只要不重新构建容器，都是一次设置，后续使用都是会保存数据的。**
