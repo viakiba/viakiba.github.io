@@ -6,6 +6,19 @@ description: vscode-go-docker环境配置
 keywords: vscode, go, docker, compose, 环境配置
 ---
 
+**以下文章未设置 go代理 ，即[链接](https://goproxy.io/zh/)**
+
+```shell
+go env -w GO111MODULE=on
+go env -w GOPROXY=https://proxy.golang.com.cn,direct
+```
+或
+```
+# 配置 GOPROXY 环境变量
+export GOPROXY=https://proxy.golang.com.cn,direct
+# 还可以设置不走 proxy 的私有仓库或组，多个用逗号相隔（可选）
+export GOPRIVATE=git.mycompany.com,github.com/my/private
+```
 
 **继续[上一篇文章](https://blog.viakiba.cn/2022/06/18/vscode-go-docker-Dockerfile%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/)提到的 docker-compose, 这一次我们根据配置文件直接拉起配置环境以及所需要的redis环境。**
 
@@ -13,7 +26,9 @@ keywords: vscode, go, docker, compose, 环境配置
 
 **[源代码](https://github.com/viakiba/viakiba/tree/master/go-docker-compose-demo)**
 
-**[参考](https://github.com/Microsoft/vscode-dev-containers/tree/main/containers/go-postgres)**
+**[代码参考](https://github.com/Microsoft/vscode-dev-containers/tree/main/containers/go-postgres)**
+
+**[配置参考](https://code.visualstudio.com/docs/remote/devcontainerjson-reference)**
 
 # 配置文件
 
