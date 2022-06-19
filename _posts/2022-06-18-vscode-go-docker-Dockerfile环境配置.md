@@ -7,10 +7,13 @@ keywords: vscode, go, docker, 环境配置
 ---
 
 # [源代码](https://github.com/viakiba/viakiba/tree/master/single-go-docker-0)
+# [参考](https://github.com/Microsoft/vscode-dev-containers/tree/main/containers/go)
+
+  **以下构建的环境，只要不重新构建容器，都是一次设置，后续使用都是会保存数据的。**
 
 # 单体应用
 
-    单体应用是指一个程序只有一个入口点，可以被单独运行的程序。在这种场景下，我们构建起docker容器，以 vscode-go-docker 的方式运行单体应用。这样一次实现配置文件，我们就可以在多处依赖配置文件借助vscode快速拉起一套开发环境。整个体验与在宿主机中体验完全一致。
+**单体应用是指一个程序只有一个入口点，可以被单独运行的程序。在这种场景下，我们构建起docker容器，以 vscode-go-docker 的方式运行单体应用。这样一次实现配置文件，我们就可以在多处依赖配置文件借助vscode快速拉起一套开发环境。整个体验与在宿主机中体验完全一致。**
 
 ## 依赖
 
