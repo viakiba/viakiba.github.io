@@ -4,6 +4,7 @@ title: github pages page build failed
 categories: [github]
 description: github pages page build failed
 keywords: github
+tags: github
 ---
 
 ## 缘由

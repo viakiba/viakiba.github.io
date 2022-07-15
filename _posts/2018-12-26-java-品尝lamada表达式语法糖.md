@@ -4,6 +4,7 @@ title: Java-品尝lamada表达式语法糖-函数接口
 categories: [Java, lamada]
 description: Java-品尝lamada表达式语法糖
 keywords: Java, lamada
+tags: Java, lamada
 ---
 
 ### 介绍

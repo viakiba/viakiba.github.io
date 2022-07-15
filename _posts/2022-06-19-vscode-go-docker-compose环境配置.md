@@ -4,6 +4,7 @@ title: vscode-go-docker-compose环境配置
 categories: [vscode, go, docker, compose]
 description: vscode-go-docker环境配置
 keywords: vscode, go, docker, compose, 环境配置
+tags: vscode, go, docker, compose, 环境配置
 ---
 
 **以下文章未设置 go代理 ，即[链接](https://goproxy.io/zh/)**

@@ -4,6 +4,7 @@ title: 游戏后端开发中常用的不停机修复方案
 categories: [java]
 description: 游戏后端开发中常用的不停机修复方案
 keywords: java, 热修复, 游戏
+tags: java, 热修复, 游戏
 ---
 
 ## 缘由

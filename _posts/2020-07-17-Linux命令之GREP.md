@@ -4,6 +4,7 @@ title: 2020-07-17-Linux 命令之GREP
 categories: [LINUX]
 description: Linux
 keywords: LINUX 命令之GREP
+tags: LINUX 命令之GREP
 ---
 
 ### 说明

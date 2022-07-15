@@ -4,7 +4,7 @@ title: SpringBoot 中借助 TestNG/SpringBootTest 实现测试
 categories: [TestNG, SpringBoot]
 description: SpringBoot 中借助 TestNG/SpringBootTest 实现测试
 keywords: SpringBoot, TestNG, Idea
-tags: TestNG, SpringBoot
+tags: SpringBoot TestNG Idea
 ---
 
 ### 代码地址

@@ -4,6 +4,7 @@ title: JOSE-Json Web Encryption
 categories: [JWE]
 description: JOSE
 keywords: JOSE, JWE, Json Web Encryption
+tags: JOSE, JWE, Json Web Encryption
 ---
 
 JOSE-Json Web Encryption (RSA1_5/A128GCM 算法)

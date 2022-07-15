@@ -4,6 +4,7 @@ title: Google authenticator to other otp app
 categories: [App, 工具]
 description: authenticator
 keywords: App，工具
+tags: App，工具
 ---
 
 ## 背景

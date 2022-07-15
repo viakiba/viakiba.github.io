@@ -4,6 +4,7 @@ title: Spring-AOP 实践
 categories: [AOP, Spring]
 description: Spring-AOP 实践
 keywords: Spring, AOP
+tags: Spring, AOP
 ---
 
 ### 引入

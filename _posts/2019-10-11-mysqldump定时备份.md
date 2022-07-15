@@ -4,6 +4,7 @@ title: mysqldump定时备份
 categories: [MySql]
 description: mysqldump定时备份
 keywords: MySql
+tags: MySql
 ---
 
 ### 参考

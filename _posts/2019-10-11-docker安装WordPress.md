@@ -4,6 +4,7 @@ title: docker 安装 WordPress
 categories: [docker]
 description: docker 安装 WordPress
 keywords: docker
+tags: docker
 ---
 
 ### 安装

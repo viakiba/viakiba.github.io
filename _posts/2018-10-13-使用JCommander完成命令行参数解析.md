@@ -4,6 +4,7 @@ title: 使用JCommander完成命令行参数解析
 categories: [JCommander, 命令行]
 description: 使用JCommander完成命令行参数解析
 keywords: JCommander, 命令行
+tags: JCommander, 命令行
 ---
 ## 概述
 JCommander是一个小巧的解析命令行参数的Java框架。

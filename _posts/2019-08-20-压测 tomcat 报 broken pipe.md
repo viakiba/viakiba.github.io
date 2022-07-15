@@ -4,6 +4,7 @@ title: 压测服务器端报 broken pipe
 categories: [AOP, Spring]
 description: 压测 tomcat 报 broken pipe
 keywords: TCP, Troubleshooting
+tags: TCP, Troubleshooting
 ---
 
 ```

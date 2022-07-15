@@ -4,6 +4,7 @@ title: 在某讯云上体验serverless
 categories: [serverless,serverlessDB]
 description: 在某讯云上体验serverless
 keywords: serverless,serverlessDB
+tags: serverless,serverlessDB
 ---
 
 ### 介绍
