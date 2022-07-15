@@ -5,6 +5,6 @@ _site/
 *~
 .DS_Store
 Gemfile.lock
-.vscode/
 Resume.pdf
 黄鹏-java-18037650338.pdf
+!.vscode/settings.json
