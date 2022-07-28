@@ -118,7 +118,7 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
 
                 // =================================================================================================================
                 window.markmap = {
-                    autoLoader: { manual: true },
+                    autoLoader: { manual: false },
                 };
                 var markdownText = element.textContent.trim();
                 var parentNode = element.parentNode.parentNode;
@@ -134,9 +134,9 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 // viewerTipNode.appendChild(document.createTextNode(markdownText));
                 // parentNode.insertBefore(viewerTipNode, element.parentNode);
 
-                setTimeout(() => {
-                    markmap.autoLoader.renderAll();
-                }, 5000);
+                // setTimeout(() => {
+                //     markmap.autoLoader.renderAll();
+                // }, 5000);
             });
         });
     </script>
