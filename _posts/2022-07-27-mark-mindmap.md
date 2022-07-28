@@ -53,48 +53,36 @@ When $$(a \ne 0)$$, there are two solutions to $$(ax^2 + bx + c = 0)$$ and they 
 
 $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
-### mindmap-1
+### mindmap
+
+[markmap 语法](https://markmap.js.org/)
 
 ```mindmap
-# topic
-## topic2
-### topic2.1
-### topic2.2
-## topic3
-<!--Note-->
-这是一个备注
-<!--/Note-->
-### topic3.1
-### topic3.2
-#### topic3.2.1
-#### topic3.2.2
-#### topic3.2.3
-#### topic3.2.4
-#### topic3.2.5
-### topic3.4
-### topic3.5
-### topic3.6
-```
+# markmap
 
-### mindmap-2
+## Links
 
-```mindmap
-# topic
-## topic2
-### topic2.1
-### topic2.2
-## topic3
-<!--Note-->
-这是一个备注
-<!--/Note-->
-### topic3.1
-### topic3.2
-#### topic3.2.1
-#### topic3.2.2
-#### topic3.2.3
-#### topic3.2.4
-#### topic3.2.5
-### topic3.4
-### topic3.5
-### topic3.6
+- <https://markmap.js.org/>
+- [GitHub](https://github.com/gera2ld/markmap)
+
+## Related Projects
+
+- [coc-markmap](https://github.com/gera2ld/coc-markmap)
+- [gatsby-remark-markmap](https://github.com/gera2ld/gatsby-remark-markmap)
+
+## Features
+
+- links
+- **strong** ~~del~~ *italic* ==highlight==
+- multiline
+  text
+- `inline code`
+-
+    ```js
+    console.log('code block');
+    ```
+- Katex
+  - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+  - [More Katex Examples](#?d=gist:gera2ld/af76a4c245b302206b16aec503dbe07b:katex.md)
+- Now we can wrap very very very very long text based on `maxWidth` option
 ```
