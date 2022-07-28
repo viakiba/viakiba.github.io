@@ -9,6 +9,7 @@ mermaid: true
 sequence: true
 flow: true
 mathjax: true
+mindmap: true
 ---
 
 **目录**
