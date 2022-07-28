@@ -73,41 +73,62 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kity@dev/dist/kity.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>
     <script>
         $(document).ready(function(){
             $('.language-mindmap').each(function(index, element) {
-            var markdownText = element.textContent.trim();
-            console.log(markdownText);
-            console.log("--------------------------------------1");
-            var parentNode = element.parentNode.parentNode;
-            var nodeName = '.language-mindmap-' + index;
-            console.log(markdownText);
-            console.log("--------------------------------------2");
-            var node = document.createElement("div");
-            node.className = 'language-mindmap-' + index;
-            node.style.height = '' + $(element).height() + 'px';
-            console.log(markdownText);
-            console.log("--------------------------------------3");
-            parentNode.insertBefore(node, element.parentNode);
-            var minder = new kityminder.Minder({
-            renderTo: nodeName
-            });
-            minder.importData('markdown', markdownText);
-            /* minder.disable(); */
-            minder.execCommand('hand');
+                // var markdownText = element.textContent.trim();
+                // console.log(markdownText);
+                // console.log("--------------------------------------1");
+                // var parentNode = element.parentNode.parentNode;
+                // var nodeName = '.language-mindmap-' + index;
+                // console.log(markdownText);
+                // console.log("--------------------------------------2");
+                // var node = document.createElement("div");
+                // node.className = 'language-mindmap-' + index;
+                // node.style.height = '' + $(element).height() + 'px';
+                // console.log(markdownText);
+                // console.log("--------------------------------------3");
+                // parentNode.insertBefore(node, element.parentNode);
+                // var minder = new kityminder.Minder({
+                //     renderTo: nodeName
+                // });
+                // minder.importData('markdown', markdownText);
+                // /* minder.disable(); */
+                // minder.execCommand('hand');
 
-            var viewerTipNode = document.createElement("a");
-            viewerTipNode.setAttribute('href', '{{ site.url }}/mindmap-viewer/?data=' + encodeURIComponent(markdownText));
-            viewerTipNode.setAttribute('target', '_blank');
-            viewerTipNode.setAttribute('style', 'font-size:0.8rem;font-style:italic;font-color:grey;');
-            parentNode.insertBefore(viewerTipNode, element.parentNode);
+                // var viewerTipNode = document.createElement("a");
+                // viewerTipNode.setAttribute('href', '{{ site.url }}/mindmap-viewer/?data=' + encodeURIComponent(markdownText));
+                // viewerTipNode.setAttribute('target', '_blank');
+                // viewerTipNode.setAttribute('style', 'font-size:0.8rem;font-style:italic;font-color:grey;');
+                // parentNode.insertBefore(viewerTipNode, element.parentNode);
 
-            element.parentNode.style.display = 'none';
+                // element.parentNode.style.display = 'none';
 
-            setTimeout(function() {
-                minder.setTemplate('{{ page.mindmap-template }}');
-                minder.refresh();
-            }, 100);
+                // setTimeout(function() {
+                //     minder.setTemplate('{{ page.mindmap-template }}');
+                //     minder.refresh();
+                // }, 100);
+
+                // =================================================================================================================
+                var markdownText = element.textContent.trim();
+           
+                var parentNode = element.parentNode.parentNode;
+                var nodeName = '.language-mindmap-' + index;
+                console.log(markdownText);
+                console.log("--------------------------------------1");
+                console.log(nodeName);
+                element.parentNode.style.display = 'none';
+
+                var viewerTipNode = document.createElement("svg");
+                viewerTipNode.setAttribute('style', 'width: 800px; height: 800px');
+                viewerTipNode.setAttribute('id', nodeName);
+                parentNode.insertBefore(viewerTipNode, element.parentNode);
+
+                const svgEl = document.querySelector(nodeName);
+                Markmap.create(svgEl, options, markdownText);
             });
         });
     </script>
