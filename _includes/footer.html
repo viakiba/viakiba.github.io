@@ -82,7 +82,8 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
     <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.1.2/dist/index.min.js"> </script>
     <script>
 
         // import { Transformer } from "markmap-lib";
@@ -153,41 +154,3 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
 {% endif %}
 </body>
 </html>
-
-<!-- <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <style>
-        * {
-          margin: 0;
-          padding: 0;
-        }
-        #mindmap {
-          display: block;
-          width: 100vw;
-          height: 100vh;
-        }
-    </style>
-
-</head>
-
-<body>
-    <svg id="mindmap"></svg>
-    <script type="text/javascript" src="//repo.bfw.wiki/bfwrepo/js/d3.6.2.0.js"></script>
-    <script type="text/javascript" src="//repo.bfw.wiki/bfwrepo/js/markmap-view.0.1.1.js"></script>
-    <script>
-        ((e, t) => {
-      const {
-          Markmap: r
-      } = e();
-      window.mm = r.create("svg#mindmap", null, t)
-  })(() => window.markmap, {"root":"xxx"})
-    </script>
-</body>
-
-</html> -->
