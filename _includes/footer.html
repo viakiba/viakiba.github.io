@@ -76,11 +76,10 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
     
     <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>
-    <script type="module">
 
-        import * as markmap from 'https://cdn.jsdelivr.net/npm/markmap-view';
-        import { Transformer } from "https://cdn.jsdelivr.net/npm/d3@6";
-        // import * as markmap from 'markmap-view';
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader"></script>
+    <script>
+
         // import { Transformer } from "markmap-lib";
         $(document).ready(function(){
             $('.language-mindmap').each(function(index, element) {
@@ -118,8 +117,10 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 // }, 100);
 
                 // =================================================================================================================
+                window.markmap = {
+                    autoLoader: { manual: true },
+                };
                 var markdownText = element.textContent.trim();
-           
                 var parentNode = element.parentNode.parentNode;
                 var nodeName = '.language-mindmap-' + index;
                 console.log(markdownText);
@@ -130,15 +131,13 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 var viewerTipNode = document.createElement("svg");
                 viewerTipNode.setAttribute('style', 'width: 800px; height: 800px');
                 viewerTipNode.setAttribute('id', nodeName);
+                viewerTipNode.setAttribute('class', "markmap");
+                viewerTipNode.appendChild(document.createTextNode(markdownText));
                 parentNode.insertBefore(viewerTipNode, element.parentNode);
 
-                const transformer = new Transformer();
-                const { root } = transformer.transform(markdownText);
-                const { styles, scripts } = transformer.getAssets();
-                const { Markmap, loadCSS, loadJS } = markmap;
-                if (styles) loadCSS(styles);
-                if (scripts) loadJS(scripts, { getMarkmap: () => markmap });
-                Markmap.create("#"+nodeName, undefined, root);
+                setTimeout(() => {
+                    markmap.autoLoader.renderAll();
+                }, 5000);
             });
         });
     </script>
