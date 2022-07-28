@@ -77,11 +77,17 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
         $(document).ready(function(){
             $('.language-mindmap').each(function(index, element) {
             var markdownText = element.textContent.trim();
+            console.log(markdownText);
+            console.log("--------------------------------------1");
             var parentNode = element.parentNode.parentNode;
             var nodeName = '.language-mindmap-' + index;
+            console.log(markdownText);
+            console.log("--------------------------------------2");
             var node = document.createElement("div");
             node.className = 'language-mindmap-' + index;
             node.style.height = '' + $(element).height() + 'px';
+            console.log(markdownText);
+            console.log("--------------------------------------3");
             parentNode.insertBefore(node, element.parentNode);
             var minder = new kityminder.Minder({
             renderTo: nodeName
