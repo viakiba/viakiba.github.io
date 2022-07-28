@@ -1,4 +1,14 @@
 ---
+layout: page
+title: 链接
+description: wiki
+keywords: wiki
+comments: false
+menu: wiki
+permalink: /wiki/
+---
+
+---
 layout: post
 title: mindmap
 categories: [mindmap]
