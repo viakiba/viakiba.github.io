@@ -76,11 +76,12 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
     
     <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>
-    <script>
+    <script type="module">
 
-        import * as markmap from 'markmap-view';
-        import { Transformer } from "markmap-lib";
-
+        import * as markmap from 'https://cdn.jsdelivr.net/npm/markmap-view';
+        import { Transformer } from "https://cdn.jsdelivr.net/npm/d3@6";
+        // import * as markmap from 'markmap-view';
+        // import { Transformer } from "markmap-lib";
         $(document).ready(function(){
             $('.language-mindmap').each(function(index, element) {
                 // var markdownText = element.textContent.trim();
@@ -117,11 +118,6 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 // }, 100);
 
                 // =================================================================================================================
-                // load with <script>
-                const { markmap } = window;
-                // or with ESM
-
-
                 var markdownText = element.textContent.trim();
            
                 var parentNode = element.parentNode.parentNode;
@@ -142,7 +138,6 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 const { Markmap, loadCSS, loadJS } = markmap;
                 if (styles) loadCSS(styles);
                 if (scripts) loadJS(scripts, { getMarkmap: () => markmap });
-
                 Markmap.create("#"+nodeName, undefined, root);
             });
         });
