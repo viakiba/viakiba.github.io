@@ -6,23 +6,12 @@ keywords: wiki
 comments: false
 menu: wiki
 permalink: /wiki/
----
-
----
-layout: post
-title: mindmap
-categories: [mindmap]
-description: mindmap
-keywords: mindmap
-tags: mindmap
 mermaid: true
 sequence: true
 flow: true
 mathjax: true
 mindmap: true
 ---
-
-[](https://blog.viakiba.cn/2022/07/27/mark-mindmap/#mindmap)
 
 ### mermaid
 
