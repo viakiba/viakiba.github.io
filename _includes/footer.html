@@ -127,7 +127,7 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 console.log(markdownText);
                 console.log(nodeName);
                 var viewerTipNode = document.createElement("svg");
-                // viewerTipNode.setAttribute('style', 'width: 800px; height: 800px');
+                viewerTipNode.setAttribute('style', 'overflow-x: auto;');
                 viewerTipNode.setAttribute('id', nodeName);
                 viewerTipNode.setAttribute('class', "markmap");
                 viewerTipNode.appendChild(document.createTextNode(markdownText));
