@@ -1,10 +1,10 @@
 ---
-layout: wiki
-title: Markdown
-cate1: Copywriting
-cate2: 
-description: Markdown 常用语法示例。
-keywords: Markdown
+layout: post
+title: mindmap
+categories: [mindmap]
+description: mindmap
+keywords: mindmap
+tags: mindmap
 mermaid: true
 sequence: true
 flow: true
