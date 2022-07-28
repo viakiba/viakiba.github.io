@@ -123,13 +123,11 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 var markdownText = element.textContent.trim();
                 var parentNode = element.parentNode.parentNode;
                 var nodeName = '.language-mindmap-' + index;
-                console.log(markdownText);
-                console.log("--------------------------------------1");
-                console.log(nodeName);
                 element.parentNode.style.display = 'none';
-
+                console.log(markdownText);
+                console.log(nodeName);
                 var viewerTipNode = document.createElement("svg");
-                viewerTipNode.setAttribute('style', 'width: 800px; height: 800px');
+                // viewerTipNode.setAttribute('style', 'width: 800px; height: 800px');
                 viewerTipNode.setAttribute('id', nodeName);
                 viewerTipNode.setAttribute('class', "markmap");
                 viewerTipNode.appendChild(document.createTextNode(markdownText));
