@@ -85,7 +85,58 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
     <script src="{{ site.url }}/assets/js/autoloader-0.1.2.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.1.2/dist/index.min.js"> </script> -->
     <script>
+         function fullScreen(nodeId) {
+            // var element = document.documentElement; //若要全屏页面中div，var element= document.getElementById("divID");  
+            var element= document.getElementById(nodeId);  
+            //IE 10及以下ActiveXObject  
+            if (window.ActiveXObject) {
+                var WsShell = new ActiveXObject('WScript.Shell')
+                WsShell.SendKeys('{F11}');
+            }
+            //HTML W3C 提议  
+            else if (element.requestFullScreen) {
+                element.requestFullScreen();
+            }
+            //IE11  
+            else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            }
+            // Webkit (works in Safari5.1 and Chrome 15)  
+            else if (element.webkitRequestFullScreen) {
+                element.webkitRequestFullScreen();
+            }
+            // Firefox (works in nightly)  
+            else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            }
+        }
 
+        //退出全屏  
+        function fullExit() {
+            // var element = document.documentElement; //若要全屏页面中div，var element= document.getElementById("divID");   
+            var element= document.getElementById("ddd");  
+            //IE ActiveXObject  
+            if (window.ActiveXObject) {
+                var WsShell = new ActiveXObject('WScript.Shell')
+                WsShell.SendKeys('{F11}');
+            }
+            //HTML5 W3C 提议  
+            else if (element.requestFullScreen) {
+                document.exitFullscreen();
+            }
+            //IE 11  
+            else if (element.msRequestFullscreen) {
+                document.msExitFullscreen();
+            }
+            // Webkit (works in Safari5.1 and Chrome 15)  
+            else if (element.webkitRequestFullScreen) {
+                document.webkitCancelFullScreen();
+            }
+            // Firefox (works in nightly)  
+            else if (element.mozRequestFullScreen) {
+                document.mozCancelFullScreen();
+            }
+        }
         // import { Transformer } from "markmap-lib";
         $(document).ready(function(){
             $('.language-mindmap').each(function(index, element) {
@@ -130,9 +181,14 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 var markdownText = element.textContent.trim();
                 var parentNode = element.parentNode.parentNode;
                 element.setAttribute('class', "markmap");
+                var nodeName = '.language-mindmap-' + index;
+                element.setAttribute("id", nodeName);
                 console.log(markdownText);
                 console.log(height + 'px');
                 console.log(width + 'px');
+                var viewerTipNode = document.createElement("button");
+                viewerTipNode.setAttribute('onclick', 'fullScreen("' + nodeName + '")');
+                parentNode.insertBefore(viewerTipNode, element.parentNode);
             });
         });
     </script>
