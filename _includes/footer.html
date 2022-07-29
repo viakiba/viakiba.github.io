@@ -189,10 +189,10 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 console.log(markdownText);
                 console.log(height + 'px');
                 console.log(width + 'px');
-                var viewerTipNode = document.createElement("button");
+                var viewerTipNode = document.createElement("a");
                 viewerTipNode.appendChild(document.createTextNode("全屏"));
                 viewerTipNode.setAttribute('onclick', 'fullScreen("' + nodeName + '")');
-                viewerTipNode.insertBefore(element.parentNode,viewerTipNode)
+                element.parentElement.parentElement.appendChild(viewerTipNode)
                 // parentNode.insertBefore(viewerTipNode, element.parentNode);
             });
         });
