@@ -192,6 +192,7 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 var viewerTipNode = document.createElement("a");
                 viewerTipNode.appendChild(document.createTextNode("全屏"));
                 viewerTipNode.setAttribute('onclick', 'fullScreen("' + nodeName + '")');
+                viewerTipNode.setAttribute('href', 'javascript:void(0)');
                 element.parentElement.parentElement.appendChild(viewerTipNode)
                 // parentNode.insertBefore(viewerTipNode, element.parentNode);
             });
