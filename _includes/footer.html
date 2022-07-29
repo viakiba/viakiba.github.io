@@ -187,6 +187,7 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 console.log(height + 'px');
                 console.log(width + 'px');
                 var viewerTipNode = document.createElement("button");
+                viewerTipNode.appendChild(document.createTextNode("全屏"));
                 viewerTipNode.setAttribute('onclick', 'fullScreen("' + nodeName + '")');
                 parentNode.insertBefore(viewerTipNode, element.parentNode);
             });
