@@ -190,6 +190,11 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 viewerTipNode.setAttribute('onclick', 'fullScreen("' + nodeName + '")');
                 viewerTipNode.setAttribute('href', 'javascript:void(0)');
                 element.parentElement.parentElement.appendChild(viewerTipNode)
+                var viewerTipNode = document.createElement("a");
+                viewerTipNode.appendChild(document.createTextNode(" 语法提示"));
+                viewerTipNode.setAttribute('href', 'https://markmap.js.org/');
+                viewerTipNode.setAttribute('target', '_blank');
+                element.parentElement.parentElement.appendChild(viewerTipNode)
             });
         });
     </script>
