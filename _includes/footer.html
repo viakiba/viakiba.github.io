@@ -141,7 +141,7 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
         }
        
         $(document).ready(function(){
-            $('.language-mindmap').each(function(index, element) {
+            $('.language-markmap').each(function(index, element) {
                 // var markdownText = element.textContent.trim();
                 // console.log(markdownText);
                 // console.log("--------------------------------------1");
@@ -183,7 +183,7 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 var markdownText = element.textContent.trim();
                 var parentNode = element.parentNode.parentNode;
                 element.setAttribute('class', "markmap");
-                var nodeName = '.language-mindmap-' + index;
+                var nodeName = '.language-markmap-' + index;
                 element.setAttribute("id", nodeName);
                 var viewerTipNode = document.createElement("a");
                 viewerTipNode.appendChild(document.createTextNode("全屏"));
