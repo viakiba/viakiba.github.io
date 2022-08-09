@@ -75,7 +75,10 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
     <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mzlogin/kityminder-core@dev/dist/kityminder.core.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/d3@6"></script>
     <script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>
-
+    <!-- svg-exportJS prerequisite: canvg -->
+    <script src="https://unpkg.com/canvg@3.0.1/lib/umd.js"></script>
+    <!-- svg-exportJS plugin -->
+    <script src="https://sharonchoong.github.io/svg-exportJS/svg-export.min.js"></script>
     <script src="{{ site.url }}/assets/js/autoloader-0.1.2.min.js"></script>
     <style>
         .markmap > svg {
@@ -86,6 +89,15 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
     </style>
     <!-- <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.1.2/dist/index.min.js"> </script> -->
     <script>
+         function downloadSvg(nodeId) {
+            var node = document.getElementById(nodeId);
+            var svg = node.getElementsByTagName('svg')[0];
+            svgExport.downloadSvg(
+                svg, // SVG DOM Element object to be exported. Alternatively, a string of the serialized SVG can be passed
+                nodeId, // chart title: file name of exported image
+                { width: 500, height: 500 } // options (optional, please see below for a list of option properties)
+                );
+         }
         //进入全屏
         function fullScreen(nodeId) {
             // var element = document.documentElement; //若要全屏页面中div，var element= document.getElementById("divID");  
@@ -139,7 +151,7 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 document.mozCancelFullScreen();
             }
         }
-       
+        
         $(document).ready(function(){
             $('.language-markmap').each(function(index, element) {
                 // var markdownText = element.textContent.trim();
@@ -194,6 +206,11 @@ $(".language-sequence").sequenceDiagram({theme: 'simple'});
                 viewerTipNode.appendChild(document.createTextNode(" 语法提示"));
                 viewerTipNode.setAttribute('href', 'https://markmap.js.org/');
                 viewerTipNode.setAttribute('target', '_blank');
+                element.parentElement.parentElement.appendChild(viewerTipNode)
+                var viewerTipNode = document.createElement("a");
+                viewerTipNode.appendChild(document.createTextNode("下载SVG"));
+                viewerTipNode.setAttribute('onclick', 'downloadSvg("' + nodeName + '")');
+                viewerTipNode.setAttribute('href', 'javascript:void(0)');
                 element.parentElement.parentElement.appendChild(viewerTipNode)
             });
         });
