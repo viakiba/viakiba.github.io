@@ -56,7 +56,7 @@ $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
 
 [markmap 语法](https://markmap.js.org/)
 
-```mindmap
+```markmap
 # markmap
 
 ## Links
