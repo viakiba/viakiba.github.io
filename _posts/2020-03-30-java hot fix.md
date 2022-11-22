@@ -151,9 +151,16 @@ java -javaagent:hotloadAgent.jar -jar hotload.jar com.company.HotLoadTest
 输出内容：
 ![hotfix](/images/post/202003/1.png)
 
+> 以上是agent参数加载
+### 动态挂载
+
+> https://github.com/viakiba/viakiba/blob/master/javaHotFix/src/com/company/hotreload/InstrumentationHolder.java
+
+agentmain 上面导出的 hotloadAgent.jar **InstrumentationHolder**  实现 **agentmain** 即可完成动态挂载。引用到 inst 和传递进来的参数也可以做到上面的事情。这种方式可以更加的解耦使用。
+
 ### 结束
 
-这估计是 最简单mingliao的热更新实现demo了。
+这估计是 最简单明了的热更新实现demo了。
 ```txt
 还有另外一种实践 不过我个人认为没有上面的实践具有工程意义。
 https://github.com/youxijishu/game-hot-update
