@@ -154,9 +154,54 @@ java -javaagent:hotloadAgent.jar -jar hotload.jar com.company.HotLoadTest
 > 以上是agent参数加载
 ### 动态挂载
 
+#### 基础方式
+
 > https://github.com/viakiba/viakiba/blob/master/javaHotFix/src/com/company/hotreload/InstrumentationHolder.java
 
 agentmain 上面导出的 hotloadAgent.jar **InstrumentationHolder**  实现 **agentmain** 即可完成动态挂载。引用到 inst 和传递进来的参数也可以做到上面的事情。这种方式可以更加的解耦使用。
+
+#### byte-buddy-agent 方式
+
+```java
+Instrumentation install = ByteBuddyAgent.install();
+```
+无需上述操作，只要使用 ByteBuddyAgent 的 install 方法即可获取到 **Instrumentation** 实例。
+
+##### 原理
+
+```java
+public static synchronized Instrumentation install(AttachmentProvider attachmentProvider, ProcessProvider processProvider) {
+    Instrumentation instrumentation = doGetInstrumentation();
+    if (instrumentation != null) {
+        return instrumentation;
+    }
+    install(attachmentProvider, processProvider.resolve(), WITHOUT_ARGUMENT, AgentProvider.ForByteBuddyAgent.INSTANCE, false);
+    return getInstrumentation();
+}
+```
+
+```java
+private static void install(AttachmentProvider attachmentProvider, String processId, @MaybeNull String argument, AgentProvider agentProvider, boolean isNative) {
+        AttachmentProvider.Accessor attachmentAccessor = attachmentProvider.attempt();
+        if (!attachmentAccessor.isAvailable()) {
+            throw new IllegalStateException("No compatible attachment provider is available");
+        }
+        // agentProvider.resolve()  ----- trySelfResolve
+        try {
+            if (attachmentAccessor.isExternalAttachmentRequired() && ATTACHMENT_TYPE_EVALUATOR.requiresExternalAttachment(processId)) {
+                installExternal(attachmentAccessor.getExternalAttachment(), processId, agentProvider.resolve(), isNative, argument);
+            } else {
+                Attacher.install(attachmentAccessor.getVirtualMachineType(), processId, agentProvider.resolve().getAbsolutePath(), isNative, argument);
+            }
+        } catch (RuntimeException exception) {
+            throw exception;
+        } catch (Exception exception) {
+            throw new IllegalStateException("Error during attachment using: " + attachmentProvider, exception);
+        }
+    }
+```
+动态内部生成了一个临时 jar-agent 并使用反射挂载 临时agent ，从而获取到 **Instrumentation** 实例。
+参考 ： https://www.jianshu.com/p/f55bfa7d472c
 
 ### 结束
 
