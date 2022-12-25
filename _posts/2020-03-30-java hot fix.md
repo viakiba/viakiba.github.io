@@ -203,6 +203,16 @@ private static void install(AttachmentProvider attachmentProvider, String proces
 动态内部生成了一个临时 jar-agent 并使用反射挂载 临时agent ，从而获取到 **Instrumentation** 实例。
 参考 ： https://www.jianshu.com/p/f55bfa7d472c
 
+
+### 内存编译器
+
+- https://github.com/viakiba/viakiba/tree/master/MemoryComplie
+
+    上面是内存编译器实现的java code 编译成 字节码使用 ByteBuddyAgent 的方式进行 class 更新。
+
+```txt
+主要是使用了 javax.tools 包下的 JavaCompiler 完成的编译。
+```
 ### 结束
 
 这估计是 最简单明了的热更新实现demo了。
