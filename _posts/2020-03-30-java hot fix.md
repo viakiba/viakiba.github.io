@@ -61,6 +61,81 @@ GroovyDemo文件见 https://github.com/viakiba/viakiba/blob/master/javaHotFix/sr
 
 这么操作可以进行线上的数据修复 比如配置等
 
+如下可以以日志的方式处理
+
+```java
+import groovy.lang.Binding;
+import groovy.lang.GroovyShell;
+import jline.internal.Log;
+
+
+public class GroovyExecutor {
+
+    private final static GroovyExecutor instance = new GroovyExecutor();
+
+    private GroovyExecutor() {
+    }
+
+    public static GroovyExecutor getInstance(){
+        return instance;
+    }
+
+    private static final String NEW_LINE = System.getProperty("line.separator");
+
+    public static class Logger {
+
+        private final StringBuilder stringBuilder = new StringBuilder();
+
+        public void log(final Object object) {
+            stringBuilder.append(object == null ? null : object.toString());
+            stringBuilder.append(NEW_LINE);
+        }
+
+        @Override
+        public String toString() {
+            return stringBuilder.toString();
+        }
+    }
+
+    public GroovyResult executeGroovy(String code) {
+        long executeMillis = 0;
+        String logMessage = "";
+        String errorMessage = "";
+        String executeMessage = "";
+        final Logger logger = new Logger();
+        final Binding binding = new Binding();
+        binding.setVariable("log", logger);
+        long millis = System.currentTimeMillis();
+        try {
+            Object executeResult = new GroovyShell(this.getClass().getClassLoader(), binding).evaluate(code);
+            if (executeResult != null) {
+                executeMessage = executeResult.toString();
+            }
+        } catch (Exception exception) {
+            errorMessage = exception.toString();
+            Log.error("web debugger execute code error", exception);
+        }
+        logMessage = logger.toString();
+        executeMillis = System.currentTimeMillis() - millis;
+        return new GroovyResult(executeMillis, logMessage, errorMessage, executeMessage);
+    }
+}
+```
+
+```java
+// shell code
+static log log = new log();
+
+static class log{
+    public void log(Object log){
+    }
+}
+
+public void clear106(){
+    log.log("sas");
+}
+```
+
 ### 反射
 
 游戏中有很多单例的实现，如果这些实现有问题的问题话，可以借助groovy脚本使用反射替换这个实例。
