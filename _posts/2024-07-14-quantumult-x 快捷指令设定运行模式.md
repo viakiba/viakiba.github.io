@@ -10,6 +10,7 @@ tags: qQuantumultX, QX, HTTP Backend
 
 记录一下如何用快捷指令控制 QuantumultX (QX) 的运行模式，使用了 QX 的 HTTP Backend 功能，所以需要开启 HTTP Backend 功能，并且运行 QX.
 > 把如下的 js 保存文件到手机中。
+
 ```js
 
 // 这是一个简单的 HTTP Backend 代码例子 https://github.com/crossutility/Quantumult-X/blob/master/sample-backend.js
@@ -144,6 +145,7 @@ if (path.includes("getmode")){
 }
 
 ```
+
 在QX的设置中找到 工具&分享里的 HTTP Backend ，点击后新建一个backend.如下图：
 
 ![ss](/images/post/2024/QX.jpg)
