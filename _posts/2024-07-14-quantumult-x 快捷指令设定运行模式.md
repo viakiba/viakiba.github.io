@@ -165,6 +165,6 @@ if (path.includes("getmode")){
 https://www.icloud.com/shortcuts/e77bcff267894ae29c302234a535cec4
 ```
 
-打开 QX-backend
+打开 QX-backend 如下图：
 
 ![ss](/images/post/2024/QX-back.png)
